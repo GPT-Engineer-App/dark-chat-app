@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, ChakraProvider, Container, FormControl, FormLabel, Input, Stack, Text, theme, useToast, VStack } from "@chakra-ui/react";
 import { FaLock, FaUserPlus, FaPhone, FaVideo, FaImage, FaSearch } from "react-icons/fa";
 
@@ -6,16 +7,18 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const toast = useToast();
+  const navigate = useNavigate();
 
   const handleSignUp = () => {
     // Placeholder for sign-up logic
     toast({
       title: "Account created.",
-      description: "We've created your account for you.",
+      description: "We've created your account for you. Redirecting to messaging...",
       status: "success",
       duration: 9000,
       isClosable: true,
     });
+    navigate("/messaging");
   };
 
   return (
